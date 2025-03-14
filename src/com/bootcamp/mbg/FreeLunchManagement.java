@@ -28,7 +28,7 @@ public class FreeLunchManagement {
                     System.out.println("Tipe hidangan:");
                     System.out.println("1. Pokok");
                     System.out.println("2. Lauk");
-                    System.out.println("3. Sayuran");
+                    System.out.println("3. Sayur-mayur / Buah-buahan");
                     System.out.println("4. Susu");
                     System.out.print("Pilih tipe hidangan: ");
                     int type = scanner.nextInt();
@@ -42,46 +42,42 @@ public class FreeLunchManagement {
                         case 1:
                             System.out.print("Masukkan sumber makanan pokok (beras, gandum, jagung): ");
                             String source = scanner.nextLine();
-                            menuService.addMenu(new Staple(name, calories, source));
+                            Staple staple = new Staple(name, calories, source);
+                            menuService.addMenu(staple);
                             break;
                         case 2:
-                            boolean isVegetarian = false;
+                            Dishes dishes = new Dishes(name, calories, false);
                             System.out.print("Apakah aman untuk diet vegetarian? [ya(y)/tidak(t)]: ");
                             String vegetarian = scanner.nextLine().trim().toLowerCase();
-
-
                             if (vegetarian.equals("y") || vegetarian.equals("ya")) {
-                                isVegetarian = true;
+                                dishes.setVegetarian(true);
                             } else if (vegetarian.equals("t") || vegetarian.equals("tidak")) {
-                                isVegetarian = false;
+                                dishes.setVegetarian(false);
                             } else {
                                 System.out.println("Input tidak valid! Harap masukkan 'ya' atau 'tidak'.");
                                 return;
                             }
-
-                            menuService.addMenu(new Dishes(name, calories, isVegetarian));
+                            menuService.addMenu(dishes);
                             break;
                         case 3:
-                            boolean isFruit = false;
+                            Vegetables vegetables = new Vegetables(name, calories, false);
                             System.out.print("Apakah berupa buah-buahan? [ya(y)/tidak(t)]: ");
                             String fruit = scanner.nextLine().trim().toLowerCase();
-
-
                             if (fruit.equals("y") || fruit.equals("ya")) {
-                                isFruit = true;
+                                vegetables.setFruit(true);
                             } else if (fruit.equals("t") || fruit.equals("tidak")) {
-                                isFruit = false;
+                                vegetables.setFruit(false);
                             } else {
                                 System.out.println("Input tidak valid! Harap masukkan 'ya' atau 'tidak'.");
                                 return;
                             }
-
-                            menuService.addMenu(new Vegetables(name, calories, isFruit));
+                            menuService.addMenu(vegetables);
                             break;
                         case 4:
                             System.out.print("Masukkan tipe susu: ");
                             String milkType = scanner.nextLine();
-                            menuService.addMenu(new Milk(name, calories, milkType));
+                            Milk milk = new Milk(name, calories, milkType);
+                            menuService.addMenu(milk);
                             break;
                         default:
                             System.out.println("Masukkan pilihan yang tepat!");
@@ -99,7 +95,7 @@ public class FreeLunchManagement {
                     System.out.println("Tipe hidangan:");
                     System.out.println("1. Pokok");
                     System.out.println("2. Lauk");
-                    System.out.println("3. Sayuran");
+                    System.out.println("3. Sayur-mayur / Buah-buahan");
                     System.out.println("4. Susu");
                     System.out.print("Pilih tipe hidangan baru: ");
                     int updateType = scanner.nextInt();
@@ -118,38 +114,33 @@ public class FreeLunchManagement {
                             updatedMenu = new Staple(newName, newCalories, newSource);
                             break;
                         case 2:
-                            boolean newIsVegetarian;
+                            Dishes newDishes = new Dishes(newName, newCalories, false);
                             System.out.print("Apakah aman untuk diet vegetarian? [ya(y)/tidak(t)]: ");
                             String vegetarian = scanner.nextLine().trim().toLowerCase();
-
                             if (vegetarian.equals("y") || vegetarian.equals("ya")) {
-                                newIsVegetarian = true;
+                                newDishes.setVegetarian(true);
                             } else if (vegetarian.equals("t") || vegetarian.equals("tidak")) {
-                                newIsVegetarian = false;
+                                newDishes.setVegetarian(false);
                             } else {
                                 System.out.println("Input tidak valid! Harap masukkan 'ya' atau 'tidak'.");
                                 return;
                             }
-
-                            updatedMenu = new Dishes(newName, newCalories, newIsVegetarian);
+                            updatedMenu = newDishes;
                             break;
 
                         case 3:
-                            boolean newIsFruit;
+                            Vegetables newVegetables = new Vegetables(newName, newCalories, false);
                             System.out.print("Apakah berupa buah-buahan? [ya(y)/tidak(t)]: ");
                             String fruit = scanner.nextLine().trim().toLowerCase();
-
-
                             if (fruit.equals("y") || fruit.equals("ya")) {
-                                newIsFruit = true;
+                                newVegetables.setFruit(true);
                             } else if (fruit.equals("t") || fruit.equals("tidak")) {
-                                newIsFruit = false;
+                                newVegetables.setFruit(false);
                             } else {
                                 System.out.println("Input tidak valid! Harap masukkan 'ya' atau 'tidak'.");
                                 return;
                             }
-
-                            updatedMenu = new Vegetables(newName, newCalories, newIsFruit);
+                            updatedMenu = newVegetables;
                             break;
                         case 4:
                             System.out.print("Masukkan tipe susu: ");

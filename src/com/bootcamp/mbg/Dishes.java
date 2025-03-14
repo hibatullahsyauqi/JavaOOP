@@ -18,6 +18,6 @@ class Dishes extends FreeLunchMenu {
 
     @Override
     public void displayInfo() {
-        System.out.printf("[%d] %s - %d kcal (Untuk vegetarian: %s)\n", getId(), getName(), getCalories(), (isVegetarian ? "Ya" : "Tidak"));
+        System.out.printf("[%d] %s - %d kcal (Untuk vegetarian: %s)\n", getId(), getName(), getCalories(), isVegetarian() ? "Ya" : "Tidak");
     }
 }

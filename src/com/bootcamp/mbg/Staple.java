@@ -12,10 +12,6 @@ class Staple extends FreeLunchMenu {
         return source;
     }
 
-    public void setSource(String source) {
-        this.source = source;
-    }
-
     @Override
     public void displayInfo() {
         System.out.printf("[%d] %s - %d kcal (Sumber: %s)\n", getId(), getName(), getCalories(), getSource());

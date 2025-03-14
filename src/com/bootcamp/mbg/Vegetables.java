@@ -18,6 +18,6 @@ public class Vegetables extends FreeLunchMenu {
 
     @Override
     public void displayInfo() {
-        System.out.printf("[%d] %s - %d kcal (Tipe: %s)\n", getId(), getName(), getCalories(), (isFruit ? "Buah-buahan" : "Sayur-mayur"));
+        System.out.printf("[%d] %s - %d kcal (Tipe: %s)\n", getId(), getName(), getCalories(), isFruit() ? "Buah-buahan" : "Sayur-mayur");
     }
 }

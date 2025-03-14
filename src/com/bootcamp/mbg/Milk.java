@@ -12,12 +12,8 @@ class Milk extends FreeLunchMenu {
         return milkType;
     }
 
-    public void setMilkType(String milkType) {
-        this.milkType = milkType;
-    }
-
     @Override
     public void displayInfo() {
-        System.out.printf("[%d] %s - %d kcal (Jenis susu: %s)\n", getId(), getName(), getCalories(), milkType);
+        System.out.printf("[%d] %s - %d kcal (Jenis susu: %s)\n", getId(), getName(), getCalories(), getMilkType());
     }
 }
