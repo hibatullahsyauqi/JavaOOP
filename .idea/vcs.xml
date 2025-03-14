@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/Trainer/java-oop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/com/enigma" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/com/enigma/mbg" vcs="Git" />
+  </component>
+</project>
