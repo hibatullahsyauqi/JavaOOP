@@ -1,4 +1,4 @@
-package com.bootcamp.robot;
+package com.bootcamp.robotchallenge;
 
 import java.io.*;
 

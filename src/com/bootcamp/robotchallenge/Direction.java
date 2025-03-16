@@ -1,4 +1,4 @@
-package com.bootcamp.robot;
+package com.bootcamp.robotchallenge;
 
 public enum Direction {
     NORTH, EAST, SOUTH, WEST;
